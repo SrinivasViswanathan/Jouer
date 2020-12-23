@@ -20,11 +20,11 @@ exports.config = {
         './test/specs/**/*.js'
     ],
 
-    //suites: {
-      //  suite1: [
-        //  './test/specs/project/project.test.js'
-        //]
-    //},
+    suites: {
+        smokeTest: [
+          './test/specs/project/*.js'
+        ]
+    },
 
     // Patterns to exclude.
     exclude: [

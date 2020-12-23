@@ -4,7 +4,8 @@
   "description": "Javascript project template",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/.bin/wdio ./wdio.conf.js"
+    "test": "node ./node_modules/.bin/wdio ./wdio.conf.js",
+    "smokeTest":"./node_modules/.bin/wdio ./wdio.conf.js --suite smokeTest"
   },
   "author": "Srinivas Viswanathan",
   "license": "ISC",
