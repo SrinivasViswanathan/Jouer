@@ -61,11 +61,11 @@ exports.config = {
         //
         browserName: 'chrome',
                     'goog:chromeOptions': {
-                    args: ['--start-fullscreen','--incognito']
+                    args: ['--incognito','--window-size=1920,1080']
        },
        'wdio:devtoolsOptions': {
                   //  ignoreDefaultArgs: true,
-                   ignoreDefaultArgs: ['--disable-sync', 'window-size=1200,900'],
+                   ignoreDefaultArgs: ['--disable-sync','--window-size=1200,900']
         },
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
@@ -150,7 +150,7 @@ exports.config = {
     reporters: [['allure', {
     outputDir: 'allure-results',
     disableWebdriverStepsReporting: true,
-    disableWebdriverScreenshotsReporting: true,
+    disableWebdriverScreenshotsReporting: false,
 }]],
 
 
@@ -247,6 +247,9 @@ exports.config = {
      * Function to be executed after a test (in Mocha/Jasmine).
      */
      afterTest: function(test, context, { error, result, duration, passed, retries }) {
+       if (error) {
+         browser.takeScreenshot()
+       }
        browser.closeWindow()
      },
 
